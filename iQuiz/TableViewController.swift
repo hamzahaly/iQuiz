@@ -12,6 +12,7 @@ class TableViewController: UITableViewController {
 
     let model = ["Mathematics", "Sciences", "Marvel Superheroes"]
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
+    let desc = ["Mathy Questions", "Sciencey Questions", "Questions about Marvel Superheroes"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
