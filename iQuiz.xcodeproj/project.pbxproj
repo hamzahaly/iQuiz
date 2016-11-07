@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		492196241DCFC309001FCA7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196231DCFC309001FCA7F /* AppDelegate.swift */; };
-		492196261DCFC309001FCA7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196251DCFC309001FCA7F /* ViewController.swift */; };
 		492196291DCFC309001FCA7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492196271DCFC309001FCA7F /* Main.storyboard */; };
 		4921962B1DCFC309001FCA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4921962A1DCFC309001FCA7F /* Assets.xcassets */; };
 		4921962E1DCFC309001FCA7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4921962C1DCFC309001FCA7F /* LaunchScreen.storyboard */; };
 		492196391DCFC309001FCA7F /* iQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196381DCFC309001FCA7F /* iQuizTests.swift */; };
 		492196441DCFC309001FCA7F /* iQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196431DCFC309001FCA7F /* iQuizUITests.swift */; };
+		492196521DCFD849001FCA7F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196511DCFD849001FCA7F /* TableViewController.swift */; };
+		492196541DCFF275001FCA7F /* iQuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196531DCFF275001FCA7F /* iQuizTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		492196201DCFC309001FCA7F /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492196231DCFC309001FCA7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		492196251DCFC309001FCA7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		492196281DCFC309001FCA7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4921962A1DCFC309001FCA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4921962D1DCFC309001FCA7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		4921963F1DCFC309001FCA7F /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		492196431DCFC309001FCA7F /* iQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuizUITests.swift; sourceTree = "<group>"; };
 		492196451DCFC309001FCA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		492196511DCFD849001FCA7F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		492196531DCFF275001FCA7F /* iQuizTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iQuizTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				492196231DCFC309001FCA7F /* AppDelegate.swift */,
-				492196251DCFC309001FCA7F /* ViewController.swift */,
+				492196511DCFD849001FCA7F /* TableViewController.swift */,
 				492196271DCFC309001FCA7F /* Main.storyboard */,
 				4921962A1DCFC309001FCA7F /* Assets.xcassets */,
+				492196531DCFF275001FCA7F /* iQuizTableViewCell.swift */,
 				4921962C1DCFC309001FCA7F /* LaunchScreen.storyboard */,
 				4921962F1DCFC309001FCA7F /* Info.plist */,
 			);
@@ -258,7 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492196261DCFC309001FCA7F /* ViewController.swift in Sources */,
+				492196541DCFF275001FCA7F /* iQuizTableViewCell.swift in Sources */,
+				492196521DCFD849001FCA7F /* TableViewController.swift in Sources */,
 				492196241DCFC309001FCA7F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +508,7 @@
 				4921964A1DCFC309001FCA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4921964B1DCFC309001FCA7F /* Build configuration list for PBXNativeTarget "iQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +517,7 @@
 				4921964D1DCFC309001FCA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4921964E1DCFC309001FCA7F /* Build configuration list for PBXNativeTarget "iQuizUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +526,7 @@
 				492196501DCFC309001FCA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
