@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--iQuiz Questions-->
         <scene sceneID="w1S-WA-50o">
             <objects>
                 <tableViewController id="LMi-Z0-Lcv" customClass="TableViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,21 @@
                             <outlet property="delegate" destination="LMi-Z0-Lcv" id="k5g-5s-juN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="fdb-tn-lYN"/>
+                    <navigationItem key="navigationItem" title="iQuiz Questions" id="fdb-tn-lYN">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="GWv-iw-MYV">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2sh-dz-swY">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settings:" destination="LMi-Z0-Lcv" eventType="touchUpInside" id="5hX-s8-Q6B"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="settingsBtn:" destination="LMi-Z0-Lcv" id="9DZ-Az-1z4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzv-AE-8pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,6 +79,7 @@
         <scene sceneID="v1I-34-mR3">
             <objects>
                 <navigationController id="VQO-Kd-yvq" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuZ-w1-DIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -13,6 +13,13 @@ class TableViewController: UITableViewController {
     let model = ["Mathematics", "Sciences", "Marvel Superheroes"]
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
     
+    @IBAction func settings(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
