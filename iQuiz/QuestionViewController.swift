@@ -8,11 +8,22 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var questionPicker: UIPickerView!
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var subjectLabel: UILabel!
+    
+    let answers = ["A: OH YEAH", "B: OH NO", "C: SUN", "D: MOON"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        questionPicker.dataSource = self
+        questionPicker.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +32,18 @@ class QuestionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return answers.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return answers[row]
+    }
+    
     /*
     // MARK: - Navigation
 
