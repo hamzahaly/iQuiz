@@ -107,12 +107,12 @@
 			children = (
 				492196231DCFC309001FCA7F /* AppDelegate.swift */,
 				492196511DCFD849001FCA7F /* TableViewController.swift */,
-				492196271DCFC309001FCA7F /* Main.storyboard */,
-				492196591DD41E35001FCA7F /* FinishedViewController.swift */,
 				492196551DD41E1E001FCA7F /* QuestionViewController.swift */,
 				492196571DD41E2C001FCA7F /* AnswerViewController.swift */,
-				4921962A1DCFC309001FCA7F /* Assets.xcassets */,
+				492196591DD41E35001FCA7F /* FinishedViewController.swift */,
 				492196531DCFF275001FCA7F /* iQuizTableViewCell.swift */,
+				492196271DCFC309001FCA7F /* Main.storyboard */,
+				4921962A1DCFC309001FCA7F /* Assets.xcassets */,
 				4921962C1DCFC309001FCA7F /* LaunchScreen.storyboard */,
 				4921962F1DCFC309001FCA7F /* Info.plist */,
 			);
