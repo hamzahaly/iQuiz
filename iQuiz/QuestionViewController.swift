@@ -17,6 +17,8 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var subjectLabel: UILabel!
     
     let answers = ["A: OH YEAH", "B: OH NO", "C: SUN", "D: MOON"]
+    var question : String?
+    var subject : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

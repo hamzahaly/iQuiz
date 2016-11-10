@@ -10,8 +10,10 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    
     let model = ["Mathematics", "Sciences", "Marvel Superheroes"]
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
+    var gloablQ : String?
 
     let mathQuestions = ["What is 1 + 1?": 1]
     let mathAnswers = [1: "2", 2: "4", 3: "5", 4: "3"]
@@ -70,7 +72,6 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

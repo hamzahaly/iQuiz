@@ -50,7 +50,7 @@
                                 <connections>
                                     <outlet property="imageLabel" destination="oh5-9j-wgm" id="9eq-2q-45q"/>
                                     <outlet property="questionLabel" destination="7sZ-I7-voq" id="8Hx-Pr-eiO"/>
-                                    <segue destination="vEa-cf-onz" kind="show" id="GEb-pz-XDD"/>
+                                    <segue destination="vEa-cf-onz" kind="show" identifier="QuestionSegue" id="GEb-pz-XDD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
