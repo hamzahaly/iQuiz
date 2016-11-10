@@ -12,11 +12,16 @@ class TableViewController: UITableViewController {
 
     let model = ["Mathematics", "Sciences", "Marvel Superheroes"]
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
-    let desc = ["Mathy Questions", "Sciencey Questions", "Questions about Marvel Superheroes"]
+
+    @IBAction func settingsBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
