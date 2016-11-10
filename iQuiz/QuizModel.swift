@@ -9,19 +9,12 @@
 import Foundation
 
 open class Subject {
-    fileprivate var subject: String
-    fileprivate var questions : [String : Int]
+    var subject: String = ""
+    var desc: String = ""
+    var title: String = ""
+//    var questions : [NSObject] = [{"text": "",
+//                                   "answer": "",
+//                                   "answers": ["", "", "", ""]}]
     //var question : String
-    var answers :  [Int: String]
     
-    public init(subject: String, questions: [String : Int], answers: [Int: String]) {
-        self.subject = subject
-        self.questions = questions
-        self.answers = answers
-    }
-    
-    public func isCorrect() -> Bool {
-        
-        return true
-    }
 }

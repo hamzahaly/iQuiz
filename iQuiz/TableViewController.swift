@@ -15,14 +15,19 @@ class TableViewController: UITableViewController {
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
     var gloablQ : String?
 
-    let mathQuestions = ["What is 1 + 1?": 1]
-    let mathAnswers = [1: "2", 2: "4", 3: "5", 4: "3"]
+//    let mathQuestions = ["What is 1 + 1?": 1]
+//    let mathAnswers = [1: "2", 2: "4", 3: "5", 4: "3"]
+//    
+//    let scienceQuestions = ["What is fire?": 2]
+//    let scienceAnswers = [1: "Cool", 2: "Fire", 3: "Water", 4: "Earth"]
+//    
+//    let marvelQuestions = ["What marvel movie came out in November 2016?": 4]
+//    let marvelAnswers = [1: "Spiderman", 2: "Ant-man", 3: "Gaurdians of the Galaxy", 4: "Doctor Strange"]
     
-    let scienceQuestions = ["What is fire?": 2]
-    let scienceAnswers = [1: "Cool", 2: "Fire", 3: "Water", 4: "Earth"]
-    
-    let marvelQuestions = ["What marvel movie came out in November 2016?": 4]
-    let marvelAnswers = [1: "Spiderman", 2: "Ant-man", 3: "Gaurdians of the Galaxy", 4: "Doctor Strange"]
+    let mathematics = Subject()
+    let sciences = Subject()
+    let marvel = Subject()
+   
     
     //let subjects = [Subject(subject: "Mathmatics", questions: mathQuestions, answers: mathAnswers), Subject(subject: "Sciences", questions: scienceQuestions, answers: scienceQuestions), Subject(subject: "Marvel Superheroes", questions: marvelQuestions, answers: marvelAnswers)]
     
@@ -36,6 +41,11 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mathematics.subject = "Mathematics"
+        sciences.subject = "Sciences"
+        marvel.subject = "Marvel Superheroes"
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -70,6 +80,14 @@ class TableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
     }
     
     /*

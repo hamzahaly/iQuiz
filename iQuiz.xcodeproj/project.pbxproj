@@ -108,9 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				492196231DCFC309001FCA7F /* AppDelegate.swift */,
+				494F87C71DD4381D0057DD7D /* QuizModel.swift */,
 				492196511DCFD849001FCA7F /* TableViewController.swift */,
 				492196551DD41E1E001FCA7F /* QuestionViewController.swift */,
-				494F87C71DD4381D0057DD7D /* QuizModel.swift */,
 				492196571DD41E2C001FCA7F /* AnswerViewController.swift */,
 				492196591DD41E35001FCA7F /* FinishedViewController.swift */,
 				492196531DCFF275001FCA7F /* iQuizTableViewCell.swift */,
