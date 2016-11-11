@@ -19,6 +19,8 @@
 		492196581DD41E2C001FCA7F /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196571DD41E2C001FCA7F /* AnswerViewController.swift */; };
 		4921965A1DD41E35001FCA7F /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492196591DD41E35001FCA7F /* FinishedViewController.swift */; };
 		494F87C81DD4381D0057DD7D /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F87C71DD4381D0057DD7D /* QuizModel.swift */; };
+		494F87CC1DD5867F0057DD7D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F87CB1DD5867F0057DD7D /* GameState.swift */; };
+		494F87CE1DD58D160057DD7D /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F87CD1DD58D160057DD7D /* QuestionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		492196571DD41E2C001FCA7F /* AnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		492196591DD41E35001FCA7F /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		494F87C71DD4381D0057DD7D /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		494F87CB1DD5867F0057DD7D /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		494F87CD1DD58D160057DD7D /* QuestionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			children = (
 				492196231DCFC309001FCA7F /* AppDelegate.swift */,
 				494F87C71DD4381D0057DD7D /* QuizModel.swift */,
+				494F87CB1DD5867F0057DD7D /* GameState.swift */,
+				494F87CD1DD58D160057DD7D /* QuestionModel.swift */,
 				492196511DCFD849001FCA7F /* TableViewController.swift */,
 				492196551DD41E1E001FCA7F /* QuestionViewController.swift */,
 				492196571DD41E2C001FCA7F /* AnswerViewController.swift */,
@@ -278,6 +284,8 @@
 				492196521DCFD849001FCA7F /* TableViewController.swift in Sources */,
 				492196581DD41E2C001FCA7F /* AnswerViewController.swift in Sources */,
 				492196561DD41E1E001FCA7F /* QuestionViewController.swift in Sources */,
+				494F87CC1DD5867F0057DD7D /* GameState.swift in Sources */,
+				494F87CE1DD58D160057DD7D /* QuestionModel.swift in Sources */,
 				494F87C81DD4381D0057DD7D /* QuizModel.swift in Sources */,
 				492196241DCFC309001FCA7F /* AppDelegate.swift in Sources */,
 			);
