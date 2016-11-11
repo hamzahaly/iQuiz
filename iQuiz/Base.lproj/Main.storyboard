@@ -48,9 +48,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="descLabel" destination="mHO-j5-zM7" id="pIk-3a-Vvc"/>
                                     <outlet property="imageLabel" destination="oh5-9j-wgm" id="9eq-2q-45q"/>
                                     <outlet property="questionLabel" destination="7sZ-I7-voq" id="8Hx-Pr-eiO"/>
-                                    <segue destination="vEa-cf-onz" kind="show" identifier="QuestionSegue" id="GEb-pz-XDD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,6 +66,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vEa-cf-onz" kind="show" identifier="QuestionSegue" id="j23-Z5-950"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzv-AE-8pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +89,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-NG-d7P">
                                 <rect key="frame" x="16" y="72" width="343" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -96,9 +99,9 @@
                                 <state key="normal" title="Submit"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvB-ny-Zmo">
-                                <rect key="frame" x="16" y="127" width="106" height="21"/>
+                                <rect key="frame" x="16" y="127" width="343" height="71"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -115,12 +118,12 @@
                         <outlet property="questionLabel" destination="DvB-ny-Zmo" id="dY9-PK-HJO"/>
                         <outlet property="questionPicker" destination="VFi-aB-LRG" id="K0C-mj-mZ0"/>
                         <outlet property="subjectLabel" destination="snT-NG-d7P" id="4Xi-aI-c2A"/>
-                        <segue destination="Yj3-MG-fid" kind="show" id="ulZ-3R-lsI"/>
+                        <segue destination="Yj3-MG-fid" kind="show" identifier="AnswerSegue" id="ulZ-3R-lsI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTA-hB-MpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="269"/>
+            <point key="canvasLocation" x="1149.5999999999999" y="268.51574212893553"/>
         </scene>
         <!--Answer-->
         <scene sceneID="uS1-fA-r84">
@@ -171,8 +174,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="wcO-Nh-G1R" kind="show" id="3Nr-G1-fZS"/>
-                        <segue destination="vEa-cf-onz" kind="show" id="RVf-24-h1s"/>
+                        <segue destination="wcO-Nh-G1R" kind="show" identifier="FinishedSegue" id="3Nr-G1-fZS"/>
+                        <segue destination="vEa-cf-onz" kind="show" identifier="MoreQuestionsSegue" id="RVf-24-h1s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BP-GW-U2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,6 +248,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RVf-24-h1s"/>
+        <segue reference="j23-Z5-950"/>
     </inferredMetricsTieBreakers>
 </document>

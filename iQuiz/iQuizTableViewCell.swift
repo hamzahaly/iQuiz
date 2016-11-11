@@ -14,6 +14,8 @@ class iQuizTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageLabel: UIImageView!
     
+    @IBOutlet weak var descLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

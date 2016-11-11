@@ -11,12 +11,19 @@ import UIKit
 class TableViewController: UITableViewController {
 
     
-    let model = ["Mathematics", "Sciences", "Marvel Superheroes"]
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
     
     let mathematics = Subject()
     let sciences = Subject()
     let marvel = Subject()
+    
+    var model = [Subject]()
+    
+    var mathQuestions = Question()
+    var scienceQuestions = Question()
+    var marvelQuestions = Question()
+    var marvelQuestions2 = Question()
+    var marvelQuestions3 = Question()
     
     @IBAction func settingsBtn(_ sender: Any) {
         let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
@@ -28,19 +35,59 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set the subjects
         mathematics.subject = "Mathematics"
         sciences.subject = "Sciences"
         marvel.subject = "Marvel Superheroes"
         
+        //Set the titles
         mathematics.title = "Mathematics"
         sciences.title = "Science!"
         marvel.title = "Marvel Super Heroes"
         
+        //Set the descriptions
         mathematics.desc = "Did you pass third grade?"
         sciences.desc = "Because SCIENCE!"
         marvel.desc = "Avengers, Assemble!"
         
+        //Set the question objects
+        scienceQuestions.text = "What is fire?"
+        scienceQuestions.answer = "1"
+        scienceQuestions.answers = ["One of the four classical elements",
+                                    "A magical reaction given to us by God",
+                                    "A band that hasn't been discovered yet",
+                                    "Fire! Fire! Fire! heh-heh"]
+        marvelQuestions.text = "Who is Iron Man?"
+        marvelQuestions.answer = "1"
+        marvelQuestions.answers = ["Tony Stark",
+                                   "Obadiah Stane",
+                                   "A rock hit by Megadeth",
+                                   "Nobody knows"]
+        marvelQuestions2.text = "Who founded the X-men?"
+        marvelQuestions2.answer = "2"
+        marvelQuestions2.answers = ["Tony Stark",
+                                    "Professor X",
+                                    "The X-Institute",
+                                    "Erik Lensherr"]
+        marvelQuestions3.text = "How did Spider-Man get his powers?"
+        marvelQuestions3.answer = "1"
+        marvelQuestions3.answers = ["He was bit a radioactive spider",
+                                    "He ate a radioactive spider",
+                                    "He is a radioactive spider",
+                                    "He looked at a radioactive spider"]
+        mathQuestions.text = "What is 2+2?"
+        mathQuestions.answer = "1"
+        mathQuestions.answers = ["4",
+                                 "22",
+                                 "An irrational number",
+                                 "Nobody knows"]
         
+        //Set the array of questions
+        mathematics.questions = []
+        sciences.questions = []
+        marvel.questions = []
+        
+        model = [mathematics, sciences, marvel]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,21 +117,27 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "iQuizCell", for: indexPath) as! iQuizTableViewCell
-        cell.questionLabel.text = model[indexPath.row]
-        cell.imageLabel.image = images[indexPath.row]
         
         // Configure the cell...
+        
+        cell.questionLabel.text = model[indexPath.row].subject
+        cell.imageLabel.image = images[indexPath.row]
+        cell.descLabel.text = model[indexPath.row].desc
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+        performSegue(withIdentifier: "QuestionSegue", sender: model)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        let questionVC = segue.destination as! QuestionViewController
+        let indexPath = self.tableView.indexPathForSelectedRow
+        questionVC.desc = model[(indexPath?.row)!].desc
+        questionVC.subject = model[(indexPath?.row)!].subject
+        
     }
     
     /*

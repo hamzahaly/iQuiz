@@ -16,15 +16,18 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var subjectLabel: UILabel!
     
-    let answers = ["A: OH YEAH", "B: OH NO", "C: SUN", "D: MOON"]
-    var question : String?
-    var subject : String?
-    
+    var answers = [String]()
+    var subject = ""
+    var question = ""
+    var desc = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         questionPicker.dataSource = self
         questionPicker.delegate = self
+        
+        questionLabel.text = question
         
         // Do any additional setup after loading the view.
     }

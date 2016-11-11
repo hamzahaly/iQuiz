@@ -12,9 +12,5 @@ open class Subject {
     var subject: String = ""
     var desc: String = ""
     var title: String = ""
-//    var questions : [NSObject] = [{"text": "",
-//                                   "answer": "",
-//                                   "answers": ["", "", "", ""]}]
-    //var question : String
-    
+    var questions: [Question] = []
 }

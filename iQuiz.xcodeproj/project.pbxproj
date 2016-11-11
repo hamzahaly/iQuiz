@@ -113,8 +113,8 @@
 			children = (
 				492196231DCFC309001FCA7F /* AppDelegate.swift */,
 				494F87C71DD4381D0057DD7D /* QuizModel.swift */,
-				494F87CB1DD5867F0057DD7D /* GameState.swift */,
 				494F87CD1DD58D160057DD7D /* QuestionModel.swift */,
+				494F87CB1DD5867F0057DD7D /* GameState.swift */,
 				492196511DCFD849001FCA7F /* TableViewController.swift */,
 				492196551DD41E1E001FCA7F /* QuestionViewController.swift */,
 				492196571DD41E2C001FCA7F /* AnswerViewController.swift */,
