@@ -50,7 +50,7 @@ class TableViewController: UITableViewController {
         sciences.desc = "Because SCIENCE!"
         marvel.desc = "Avengers, Assemble!"
         
-        //Set the question objects
+        //Set the question classes
         scienceQuestions.text = "What is fire?"
         scienceQuestions.answer = "1"
         scienceQuestions.answers = ["One of the four classical elements",
@@ -83,9 +83,9 @@ class TableViewController: UITableViewController {
                                  "Nobody knows"]
         
         //Set the array of questions
-        mathematics.questions = []
-        sciences.questions = []
-        marvel.questions = []
+        mathematics.questions = [mathQuestions]
+        sciences.questions = [scienceQuestions]
+        marvel.questions = [marvelQuestions, marvelQuestions2, marvelQuestions3]
         
         model = [mathematics, sciences, marvel]
         
@@ -137,7 +137,7 @@ class TableViewController: UITableViewController {
         let indexPath = self.tableView.indexPathForSelectedRow
         questionVC.desc = model[(indexPath?.row)!].desc
         questionVC.subject = model[(indexPath?.row)!].subject
-        
+        questionVC.questions = model[(indexPath?.row)!].questions
     }
     
     /*

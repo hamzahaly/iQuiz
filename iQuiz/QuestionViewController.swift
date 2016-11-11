@@ -18,16 +18,21 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var answers = [String]()
     var subject = ""
-    var question = ""
+    var questions = [Question()]
     var desc = ""
+    var model = [Subject]()
+    var gameState = GameState()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameState.numberOfQuestions = questions.count
+        gameState.questionsLeft = questions.count
+        
         questionPicker.dataSource = self
         questionPicker.delegate = self
         
-        questionLabel.text = question
+        subjectLabel.text = subject
         
         // Do any additional setup after loading the view.
     }
@@ -48,6 +53,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return answers[row]
     }
+    
     
     /*
     // MARK: - Navigation
