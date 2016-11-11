@@ -19,6 +19,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var answers = [String]()
     var subject = ""
     var questions = [Question()]
+    var question = Question()
     var desc = ""
     var model = [Subject]()
     var gameState = GameState()
@@ -29,10 +30,12 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         gameState.numberOfQuestions = questions.count
         gameState.questionsLeft = questions.count
         
+        
         questionPicker.dataSource = self
         questionPicker.delegate = self
         
         subjectLabel.text = subject
+        questionLabel.text = question.text
         
         // Do any additional setup after loading the view.
     }
@@ -54,6 +57,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         return answers[row]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let answerVC = segue.destination as! AnswerViewController
+        
+    }
     
     /*
     // MARK: - Navigation

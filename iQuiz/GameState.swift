@@ -12,4 +12,6 @@ open class GameState {
     var score : Int = 0
     var numberOfQuestions : Int = 0
     var questionsLeft : Int = 0
+    var subject = Subject()
+    var questions = [Question]()
 }

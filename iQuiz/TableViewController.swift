@@ -138,6 +138,7 @@ class TableViewController: UITableViewController {
         questionVC.desc = model[(indexPath?.row)!].desc
         questionVC.subject = model[(indexPath?.row)!].subject
         questionVC.questions = model[(indexPath?.row)!].questions
+        questionVC.question = model[(indexPath?.row)!].questions[0]
     }
     
     /*
