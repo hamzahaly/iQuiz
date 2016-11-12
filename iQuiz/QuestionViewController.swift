@@ -21,6 +21,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     var answers = [String]()
+    var answerText = ""
     var answer = ""
     var subject = ""
     var questions = [Question()]
@@ -29,10 +30,20 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var model = [Subject]()
     var gameState = GameState()
     var answerChosen : Int = 0
+    var rightOrWrong = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let correctAnswer = question.answer
+        if correctAnswer == "1" {
+            answerText = question.answers[0]
+        } else if correctAnswer == "2" {
+            answerText = question.answers[1]
+        } else if correctAnswer == "3" {
+            answerText = question.answers[2]
+        } else {
+            answerText = question.answers[3]
+        }
         answerChosen = questionPicker.selectedRow(inComponent: 0)
         
         gameState.numberOfQuestions = questions.count
@@ -67,13 +78,30 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         answerChosen = pickerView.selectedRow(inComponent: 0)
+        if answerChosen == 0 {
+            answer = "1"
+        } else if answerChosen == 1 {
+            answer = "2"
+        } else if answerChosen == 2 {
+            answer = "3"
+        } else {
+            answer = "4"
+        }
+        
+        if question.answer == answer {
+            rightOrWrong = "You got the right answer!"
+        } else {
+            rightOrWrong = "You got the wrong answer!"
+        }
                 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let answerVC = segue.destination as! AnswerViewController
-        
-        
+        answerVC.subject = subject
+        answerVC.question = question
+        answerVC.answerText = answerText
+        answerVC.rightOrWrong = rightOrWrong
     }
     
     /*

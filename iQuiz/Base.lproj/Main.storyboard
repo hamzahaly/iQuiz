@@ -153,14 +153,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ued-6p-l34">
-                                <rect key="frame" x="16" y="127" width="106" height="21"/>
+                                <rect key="frame" x="16" y="127" width="343" height="35"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Right or Wrong Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06d-k0-e9i">
-                                <rect key="frame" x="106" y="323" width="163" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Right or Wrong Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06d-k0-e9i">
+                                <rect key="frame" x="16" y="323" width="343" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -177,6 +177,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="correctAnswerLabel" destination="oyj-fe-DYr" id="YE2-Oa-XDu"/>
+                        <outlet property="questionLabel" destination="ued-6p-l34" id="0M8-lJ-EZ0"/>
+                        <outlet property="rightOrWrongLabel" destination="06d-k0-e9i" id="oc5-ZB-9H5"/>
+                        <outlet property="subjectLabel" destination="sW1-r7-1NJ" id="WKB-Sw-g20"/>
                         <segue destination="wcO-Nh-G1R" kind="show" identifier="FinishedSegue" id="3Nr-G1-fZS"/>
                         <segue destination="vEa-cf-onz" kind="show" identifier="MoreQuestionsSegue" id="RVf-24-h1s"/>
                     </connections>

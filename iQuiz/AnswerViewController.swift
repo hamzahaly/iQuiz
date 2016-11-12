@@ -9,20 +9,33 @@
 import UIKit
 
 class AnswerViewController: UIViewController {
-
-    //var answers = [String]()
+    @IBOutlet weak var subjectLabel: UILabel!
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var correctAnswerLabel: UILabel!
+    
+    @IBOutlet weak var rightOrWrongLabel: UILabel!
+    
     var answer = ""
+    var answerText = ""
     var subject = ""
     var questions = [Question()]
     var question = Question()
-    //var desc = ""
     var model = [Subject]()
     var gameState = GameState()
     var answerChosen : Int = 0
+    var rightOrWrong = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        subjectLabel.text = subject
+        questionLabel.text = question.text
+        correctAnswerLabel.text = "Correct Answer: \(answerText)"
+        rightOrWrongLabel.text = rightOrWrong
+        
         // Do any additional setup after loading the view.
     }
 
