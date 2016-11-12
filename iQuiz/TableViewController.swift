@@ -25,6 +25,8 @@ class TableViewController: UITableViewController {
     var marvelQuestions2 = Question()
     var marvelQuestions3 = Question()
     
+    var gameState = GameState()
+    
     @IBAction func settingsBtn(_ sender: Any) {
         let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -128,19 +130,27 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         performSegue(withIdentifier: "QuestionSegue", sender: model)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let questionVC = segue.destination as! QuestionViewController
         let indexPath = self.tableView.indexPathForSelectedRow
+        gameState.subject = model[(indexPath?.row)!]
+        gameState.questions = model[(indexPath?.row)!].questions
+        gameState.currentQuestion = model[(indexPath?.row)!].questions[0]
+        gameState.numberOfQuestions = model[(indexPath?.row)!].questions.count
+        gameState.questionsLeft = model[(indexPath?.row)!].questions.count
+        gameState.score = 0
+        
         questionVC.desc = model[(indexPath?.row)!].desc
         questionVC.subject = model[(indexPath?.row)!].subject
         questionVC.questions = model[(indexPath?.row)!].questions
         questionVC.question = model[(indexPath?.row)!].questions[0]
         questionVC.answers = model[(indexPath?.row)!].questions[0].answers
         questionVC.answer = model[(indexPath?.row)!].questions[0].answer
+        
+        questionVC.gameState = gameState
     }
     
     /*

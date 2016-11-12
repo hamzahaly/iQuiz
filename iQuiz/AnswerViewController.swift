@@ -39,7 +39,7 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        subjectLabel.text = subject
+        subjectLabel.text = gameState.subject.title
         questionLabel.text = question.text
         correctAnswerLabel.text = answerText
         rightOrWrongLabel.text = rightOrWrong
@@ -50,10 +50,10 @@ class AnswerViewController: UIViewController {
         } else {
             rightOrWrongLabel.textColor = UIColor.red
         }
-        
+        print(gameState.questions)
         gameState.questions.remove(at: 0)
         gameState.questionsLeft = gameState.questions.count
-        
+        questions.remove(at: 0)
         // Do any additional setup after loading the view.
     }
 
@@ -63,11 +63,15 @@ class AnswerViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if gameState.numberOfQuestions > 0 {
+        print(gameState.questionsLeft)
+        if gameState.questionsLeft > 0 {
             let questionVC = segue.destination as! QuestionViewController
             questionVC.gameState = gameState
+            questionVC.questions = questions
         } else {
             let finishedVC = segue.destination as! FinishedViewController
+            finishedVC.gameState = gameState
+            finishedVC.score = gameState.score
         }
         
         

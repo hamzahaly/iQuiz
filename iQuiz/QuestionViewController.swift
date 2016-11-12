@@ -20,6 +20,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         performSegue(withIdentifier: "AnswerSegue", sender: nil)
     }
     
+    var gameState = GameState()
     var answers = [String]()
     var answerText = ""
     var answer = ""
@@ -28,12 +29,22 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var question = Question()
     var desc = ""
     var model = [Subject]()
-    var gameState = GameState()
     var answerChosen : Int = 0
     var rightOrWrong = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameState.questions = questions
+        //gameState.numberOfQuestions = questions.count
+        gameState.questionsLeft = questions.count
+        //gameState.subject.title = subject
+        
+        question = gameState.questions[0]
+
+        answers = gameState.questions[0].answers
+        answer = gameState.questions[0].answer
+        
         let correctAnswer = question.answer
         if correctAnswer == "1" {
             answerText = question.answers[0]
@@ -46,15 +57,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         answerChosen = questionPicker.selectedRow(inComponent: 0)
         
-        gameState.questions = questions
-        gameState.numberOfQuestions = questions.count
-        gameState.questionsLeft = questions.count
-        
-        
         questionPicker.dataSource = self
         questionPicker.delegate = self
         
-        subjectLabel.text = subject
+        subjectLabel.text = gameState.subject.title
         questionLabel.text = question.text
         
         getAnswer()
@@ -91,6 +97,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         answerVC.answerText = answerText
         answerVC.rightOrWrong = rightOrWrong
         answerVC.gameState = gameState
+        answerVC.questions = questions
     }
     
     func getAnswer() {

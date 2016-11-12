@@ -10,9 +10,31 @@ import UIKit
 
 class FinishedViewController: UIViewController {
 
+   
+    
+    var gameState = GameState()
+    var score = 0
+    
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBAction func nextBtn(_ sender: Any) {
+        performSegue(withIdentifier: "MainMenuSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        scoreLabel.text = "\(gameState.score) / \(gameState.numberOfQuestions)"
+        if Double(gameState.score) / Double(gameState.numberOfQuestions) == 1 {
+            descLabel.text = "Perfect!"
+            descLabel.textColor = UIColor.green
+        } else if Double(gameState.score) / Double(gameState.numberOfQuestions) < 0.5 {
+            descLabel.text = "Better Luck Next Time"
+            descLabel.textColor = UIColor.red
+        } else {
+            descLabel.text = "Not Bad"
+        }
         // Do any additional setup after loading the view.
     }
 
