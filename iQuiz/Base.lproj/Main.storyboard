@@ -97,6 +97,9 @@
                                 <rect key="frame" x="310" y="585" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitBtn:" destination="vEa-cf-onz" eventType="touchUpInside" id="aZz-3j-rTo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvB-ny-Zmo">
                                 <rect key="frame" x="16" y="127" width="343" height="71"/>
@@ -164,9 +167,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correct Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-fe-DYr">
-                                <rect key="frame" x="81" y="221" width="212" height="55"/>
+                                <rect key="frame" x="16" y="221" width="343" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -180,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BP-GW-U2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="-507"/>
+            <point key="canvasLocation" x="1573.5999999999999" y="-507.79610194902551"/>
         </scene>
         <!--Finshed-->
         <scene sceneID="hk4-BZ-Q4v">
@@ -248,6 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j23-Z5-950"/>
+        <segue reference="RVf-24-h1s"/>
     </inferredMetricsTieBreakers>
 </document>

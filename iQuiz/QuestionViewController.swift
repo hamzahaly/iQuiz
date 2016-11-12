@@ -16,6 +16,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var subjectLabel: UILabel!
     
+    @IBAction func submitBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "AnswerSegue", sender: nil)
+    }
+    
     var answers = [String]()
     var answer = ""
     var subject = ""
@@ -63,10 +67,12 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         answerChosen = pickerView.selectedRow(inComponent: 0)
+                
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let answerVC = segue.destination as! AnswerViewController
+        
         
     }
     

@@ -10,6 +10,16 @@ import UIKit
 
 class AnswerViewController: UIViewController {
 
+    //var answers = [String]()
+    var answer = ""
+    var subject = ""
+    var questions = [Question()]
+    var question = Question()
+    //var desc = ""
+    var model = [Subject]()
+    var gameState = GameState()
+    var answerChosen : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
