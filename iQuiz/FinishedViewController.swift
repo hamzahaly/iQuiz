@@ -13,7 +13,6 @@ class FinishedViewController: UIViewController {
    
     
     var gameState = GameState()
-    var score = 0
     
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!

@@ -71,7 +71,6 @@ class AnswerViewController: UIViewController {
         } else {
             let finishedVC = segue.destination as! FinishedViewController
             finishedVC.gameState = gameState
-            finishedVC.score = gameState.score
         }
         
         
