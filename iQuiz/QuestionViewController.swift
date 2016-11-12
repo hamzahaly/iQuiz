@@ -17,15 +17,19 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var subjectLabel: UILabel!
     
     var answers = [String]()
+    var answer = ""
     var subject = ""
     var questions = [Question()]
     var question = Question()
     var desc = ""
     var model = [Subject]()
     var gameState = GameState()
-
+    var answerChosen : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        answerChosen = questionPicker.selectedRow(inComponent: 0)
         
         gameState.numberOfQuestions = questions.count
         gameState.questionsLeft = questions.count
@@ -55,6 +59,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return answers[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        answerChosen = pickerView.selectedRow(inComponent: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

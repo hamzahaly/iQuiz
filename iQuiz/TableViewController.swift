@@ -140,7 +140,7 @@ class TableViewController: UITableViewController {
         questionVC.questions = model[(indexPath?.row)!].questions
         questionVC.question = model[(indexPath?.row)!].questions[0]
         questionVC.answers = model[(indexPath?.row)!].questions[0].answers
-        
+        questionVC.answer = model[(indexPath?.row)!].questions[0].answer
     }
     
     /*
