@@ -46,6 +46,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         answerChosen = questionPicker.selectedRow(inComponent: 0)
         
+        gameState.questions = questions
         gameState.numberOfQuestions = questions.count
         gameState.questionsLeft = questions.count
         
@@ -55,6 +56,8 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         subjectLabel.text = subject
         questionLabel.text = question.text
+        
+        getAnswer()
         
         // Do any additional setup after loading the view.
     }
@@ -78,6 +81,19 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         answerChosen = pickerView.selectedRow(inComponent: 0)
+        getAnswer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let answerVC = segue.destination as! AnswerViewController
+        answerVC.subject = subject
+        answerVC.question = question
+        answerVC.answerText = answerText
+        answerVC.rightOrWrong = rightOrWrong
+        answerVC.gameState = gameState
+    }
+    
+    func getAnswer() {
         if answerChosen == 0 {
             answer = "1"
         } else if answerChosen == 1 {
@@ -93,17 +109,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         } else {
             rightOrWrong = "You got the wrong answer!"
         }
-                
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let answerVC = segue.destination as! AnswerViewController
-        answerVC.subject = subject
-        answerVC.question = question
-        answerVC.answerText = answerText
-        answerVC.rightOrWrong = rightOrWrong
-    }
-    
     /*
     // MARK: - Navigation
 

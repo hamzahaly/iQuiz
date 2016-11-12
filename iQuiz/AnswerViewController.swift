@@ -17,6 +17,14 @@ class AnswerViewController: UIViewController {
     
     @IBOutlet weak var rightOrWrongLabel: UILabel!
     
+    @IBAction func nextButton(_ sender: UIButton) {
+        if gameState.questionsLeft > 0 {
+            performSegue(withIdentifier: "MoreQuestionsSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "FinishedSegue", sender: nil)
+        }
+    }
+    
     var answer = ""
     var answerText = ""
     var subject = ""
@@ -33,8 +41,18 @@ class AnswerViewController: UIViewController {
 
         subjectLabel.text = subject
         questionLabel.text = question.text
-        correctAnswerLabel.text = "Correct Answer: \(answerText)"
+        correctAnswerLabel.text = answerText
         rightOrWrongLabel.text = rightOrWrong
+        
+        if rightOrWrong == "You got the right answer!" {
+            rightOrWrongLabel.textColor = UIColor.green
+            gameState.score += 1
+        } else {
+            rightOrWrongLabel.textColor = UIColor.red
+        }
+        
+        gameState.questions.remove(at: 0)
+        gameState.questionsLeft = gameState.questions.count
         
         // Do any additional setup after loading the view.
     }
@@ -44,7 +62,16 @@ class AnswerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if gameState.numberOfQuestions > 0 {
+            let questionVC = segue.destination as! QuestionViewController
+            questionVC.gameState = gameState
+        } else {
+            let finishedVC = segue.destination as! FinishedViewController
+        }
+        
+        
+    }
     /*
     // MARK: - Navigation
 

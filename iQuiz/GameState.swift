@@ -14,4 +14,5 @@ open class GameState {
     var questionsLeft : Int = 0
     var subject = Subject()
     var questions = [Question]()
+    var currentQuestion = Question()
 }
