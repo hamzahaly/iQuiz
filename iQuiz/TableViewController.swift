@@ -50,6 +50,9 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let url = NSURL(string: "http://tednewardsandbox.site44.com/questions.json")
+        let task = URLSession.shared.dataTask(with: url)
+        
         //Set the subjects
         mathematics.subject = "Mathematics"
         sciences.subject = "Sciences"
