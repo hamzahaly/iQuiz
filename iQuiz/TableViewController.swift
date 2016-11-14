@@ -27,11 +27,24 @@ class TableViewController: UITableViewController {
     
     var gameState = GameState()
     
-    @IBAction func settingsBtn(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func settings(_ sender: UIBarButtonItem) {
+        
+        let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController")
+        settingsViewController?.modalPresentationStyle = .popover
+        
+        let popoverViewController = settingsViewController?.popoverPresentationController
+        
+        popoverViewController?.barButtonItem = sender
+        
+        present(settingsViewController!, animated: true, completion: nil)
+
+        
+        //let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController")
+        //settingsViewController?.modalPresentationStyle = .popover
+        //present(settingsViewController!, animated: true, completion: nil)
+        
+        //let popoverViewController = settingsViewController!.popoverPresentationController
+        //popoverViewController?.barButtonItem = sender
     }
     
     override func viewDidLoad() {

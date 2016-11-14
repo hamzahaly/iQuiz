@@ -62,7 +62,7 @@
                     <navigationItem key="navigationItem" title="iQuiz Subjects" id="fdb-tn-lYN">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="d4i-5k-ZRo">
                             <connections>
-                                <action selector="settingsBtn:" destination="LMi-Z0-Lcv" id="ziy-ho-Rzi"/>
+                                <action selector="settings:" destination="LMi-Z0-Lcv" id="jva-Ef-hpH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,6 +73,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzv-AE-8pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="396" y="68"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vLv-5V-8Sa">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="dCE-sw-c8a" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="64M-IH-Wpf"/>
+                        <viewControllerLayoutGuide type="bottom" id="qmO-ED-usT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j5e-uh-DTY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfM-Ds-5yF">
+                                <rect key="frame" x="153" y="186" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VuY-nj-wxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="-683"/>
         </scene>
         <!--Question-->
         <scene sceneID="JDn-Ox-dJ2">
@@ -273,7 +300,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="j23-Z5-950"/>
         <segue reference="VCJ-LT-ACj"/>
-        <segue reference="RVf-24-h1s"/>
     </inferredMetricsTieBreakers>
 </document>
