@@ -60,13 +60,20 @@ class TableViewController: UITableViewController {
             if error != nil {
                 print(error)
             } else {
-                print(data)
                 do {
                     let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [[String: Any]]
                     
-                    print("data: \(data!)")
-                    print("response: \(response)")
-                    print("parsedData: \(parsedData)")
+//                    print("data: \(data!)")
+//                    print("response: \(response)")
+//                    print("parsedData: \(parsedData)")
+                    print(parsedData[0]["questions"]!)
+                    for element in parsedData {
+                        //print(element)
+//                        print(element["questions"]!)
+//                        print(element["title"]!)
+//                        print(element["desc"]!)
+                        
+                    }
                 } catch {
                     print("Serialization failed")
                 }
