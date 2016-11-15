@@ -52,35 +52,26 @@ class TableViewController: UITableViewController {
         
         let config = URLSessionConfiguration.default // Session Configuration
         let session = URLSession(configuration: config) // Load configuration into Session
-        let url = URL(string: "http://www.tednewardsandbox.site44.com/questions.json")!
+        let url = URL(string: "https://tednewardsandbox.site44.com/questions.json")!
         
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
             
             if error != nil {
-                
-                print(error!.localizedDescription)
-                
+                print(error)
             } else {
-                
                 do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
                     
-                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
-                    {
-                        
-                        //Implement your logic
-                        print(json)
-                        
-                    }
-                    
+                    print("data: \(data!)")
+                    print("response: \(response)")
+                    print("parsedData: \(parsedData)")
                 } catch {
-                    
-                    print("error in JSONSerialization")
-                    
+                    print("Serialization failed")
                 }
                 
-                
             }
+            
             
         })
         task.resume()
