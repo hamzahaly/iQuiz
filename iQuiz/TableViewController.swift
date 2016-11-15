@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    
+    let defaults = UserDefaults.standard
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
     
     let mathematics = Subject()
@@ -50,8 +50,40 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL(string: "http://tednewardsandbox.site44.com/questions.json")
-        let task = URLSession.shared.dataTask(with: url)
+        let config = URLSessionConfiguration.default // Session Configuration
+        let session = URLSession(configuration: config) // Load configuration into Session
+        let url = URL(string: "http://www.tednewardsandbox.site44.com/questions.json")!
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            
+            if error != nil {
+                
+                print(error!.localizedDescription)
+                
+            } else {
+                
+                do {
+                    
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+                    {
+                        
+                        //Implement your logic
+                        print(json)
+                        
+                    }
+                    
+                } catch {
+                    
+                    print("error in JSONSerialization")
+                    
+                }
+                
+                
+            }
+            
+        })
+        task.resume()
         
         //Set the subjects
         mathematics.subject = "Mathematics"
