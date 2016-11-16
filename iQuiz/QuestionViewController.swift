@@ -42,26 +42,26 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         question = gameState.questions[0]
 
-        answers = gameState.questions[0].answers
-        answer = gameState.questions[0].answer
-        
-        let correctAnswer = question.answer
-        if correctAnswer == "1" {
-            answerText = question.answers[0]
-        } else if correctAnswer == "2" {
-            answerText = question.answers[1]
-        } else if correctAnswer == "3" {
-            answerText = question.answers[2]
-        } else {
-            answerText = question.answers[3]
-        }
+//        answers = gameState.questions[0].answers
+//        answer = gameState.questions[0].answer
+//        
+//        let correctAnswer = question.answer
+//        if correctAnswer == "1" {
+//            answerText = question.answers[0]
+//        } else if correctAnswer == "2" {
+//            answerText = question.answers[1]
+//        } else if correctAnswer == "3" {
+//            answerText = question.answers[2]
+//        } else {
+//            answerText = question.answers[3]
+//        }
         answerChosen = questionPicker.selectedRow(inComponent: 0)
         
         questionPicker.dataSource = self
         questionPicker.delegate = self
         
         subjectLabel.text = gameState.subject.title
-        questionLabel.text = question.text
+        //questionLabel.text = question.text
         
         getAnswer()
         

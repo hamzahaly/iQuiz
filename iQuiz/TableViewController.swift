@@ -13,17 +13,17 @@ class TableViewController: UITableViewController {
     let defaults = UserDefaults.standard
     let images = [UIImage(named: "Math"), UIImage(named: "Science"), UIImage(named: "Marvel")]
     
-    let mathematics = Subject()
-    let sciences = Subject()
-    let marvel = Subject()
-    
-    var model = [Subject]()
-    
-    var mathQuestions = Question()
-    var scienceQuestions = Question()
-    var marvelQuestions = Question()
-    var marvelQuestions2 = Question()
-    var marvelQuestions3 = Question()
+//    let mathematics = Subject()
+//    let sciences = Subject()
+//    let marvel = Subject()
+//    
+      var model = [Subject]()
+//    
+//    var mathQuestions = Question()
+//    var scienceQuestions = Question()
+//    var marvelQuestions = Question()
+//    var marvelQuestions2 = Question()
+//    var marvelQuestions3 = Question()
     
     var gameState = GameState()
     
@@ -66,8 +66,19 @@ class TableViewController: UITableViewController {
 //                    print("data: \(data!)")
 //                    print("response: \(response)")
 //                    print("parsedData: \(parsedData)")
-                    print(parsedData[0]["questions"]!)
                     for element in parsedData {
+                        //print("element: \(element)")
+                        self.model.append(Subject())
+                        for model in self.model {
+                            if model.title == "" {
+                                model.title = element["title"] as! String
+                                model.desc = element["desc"] as! String
+                                model.subject = element["title"] as! String
+                                print(element["questions"]!)
+                                model.questions = element["questions"]! as! [Question]
+                            }
+                        }
+                        self.tableView.reloadData()
                         //print(element)
 //                        print(element["questions"]!)
 //                        print(element["title"]!)
@@ -77,63 +88,64 @@ class TableViewController: UITableViewController {
                 } catch {
                     print("Serialization failed")
                 }
+
             }
+
         })
         task.resume()
-        
         //Set the subjects
-        mathematics.subject = "Mathematics"
-        sciences.subject = "Sciences"
-        marvel.subject = "Marvel Superheroes"
-        
-        //Set the titles
-        mathematics.title = "Mathematics"
-        sciences.title = "Science!"
-        marvel.title = "Marvel Super Heroes"
-        
-        //Set the descriptions
-        mathematics.desc = "Did you pass third grade?"
-        sciences.desc = "Because SCIENCE!"
-        marvel.desc = "Avengers, Assemble!"
-        
-        //Set the question classes
-        scienceQuestions.text = "What is fire?"
-        scienceQuestions.answer = "1"
-        scienceQuestions.answers = ["One of the four classical elements",
-                                    "A magical reaction given to us by God",
-                                    "A band that hasn't been discovered yet",
-                                    "Fire! Fire! Fire! heh-heh"]
-        marvelQuestions.text = "Who is Iron Man?"
-        marvelQuestions.answer = "1"
-        marvelQuestions.answers = ["Tony Stark",
-                                   "Obadiah Stane",
-                                   "A rock hit by Megadeth",
-                                   "Nobody knows"]
-        marvelQuestions2.text = "Who founded the X-men?"
-        marvelQuestions2.answer = "2"
-        marvelQuestions2.answers = ["Tony Stark",
-                                    "Professor X",
-                                    "The X-Institute",
-                                    "Erik Lensherr"]
-        marvelQuestions3.text = "How did Spider-Man get his powers?"
-        marvelQuestions3.answer = "1"
-        marvelQuestions3.answers = ["He was bit a radioactive spider",
-                                    "He ate a radioactive spider",
-                                    "He is a radioactive spider",
-                                    "He looked at a radioactive spider"]
-        mathQuestions.text = "What is 2+2?"
-        mathQuestions.answer = "1"
-        mathQuestions.answers = ["4",
-                                 "22",
-                                 "An irrational number",
-                                 "Nobody knows"]
-        
-        //Set the array of questions
-        mathematics.questions = [mathQuestions]
-        sciences.questions = [scienceQuestions]
-        marvel.questions = [marvelQuestions, marvelQuestions2, marvelQuestions3]
-        
-        model = [mathematics, sciences, marvel]
+//        mathematics.subject = "Mathematics"
+//        sciences.subject = "Sciences"
+//        marvel.subject = "Marvel Superheroes"
+//        
+//        //Set the titles
+//        mathematics.title = "Mathematics"
+//        sciences.title = "Science!"
+//        marvel.title = "Marvel Super Heroes"
+//        
+//        //Set the descriptions
+//        mathematics.desc = "Did you pass third grade?"
+//        sciences.desc = "Because SCIENCE!"
+//        marvel.desc = "Avengers, Assemble!"
+//        
+//        //Set the question classes
+//        scienceQuestions.text = "What is fire?"
+//        scienceQuestions.answer = "1"
+//        scienceQuestions.answers = ["One of the four classical elements",
+//                                    "A magical reaction given to us by God",
+//                                    "A band that hasn't been discovered yet",
+//                                    "Fire! Fire! Fire! heh-heh"]
+//        marvelQuestions.text = "Who is Iron Man?"
+//        marvelQuestions.answer = "1"
+//        marvelQuestions.answers = ["Tony Stark",
+//                                   "Obadiah Stane",
+//                                   "A rock hit by Megadeth",
+//                                   "Nobody knows"]
+//        marvelQuestions2.text = "Who founded the X-men?"
+//        marvelQuestions2.answer = "2"
+//        marvelQuestions2.answers = ["Tony Stark",
+//                                    "Professor X",
+//                                    "The X-Institute",
+//                                    "Erik Lensherr"]
+//        marvelQuestions3.text = "How did Spider-Man get his powers?"
+//        marvelQuestions3.answer = "1"
+//        marvelQuestions3.answers = ["He was bit a radioactive spider",
+//                                    "He ate a radioactive spider",
+//                                    "He is a radioactive spider",
+//                                    "He looked at a radioactive spider"]
+//        mathQuestions.text = "What is 2+2?"
+//        mathQuestions.answer = "1"
+//        mathQuestions.answers = ["4",
+//                                 "22",
+//                                 "An irrational number",
+//                                 "Nobody knows"]
+//        
+//        //Set the array of questions
+//        mathematics.questions = [mathQuestions]
+//        sciences.questions = [scienceQuestions]
+//        marvel.questions = [marvelQuestions, marvelQuestions2, marvelQuestions3]
+//        
+//        model = [mathematics, sciences, marvel]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -180,6 +192,7 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let questionVC = segue.destination as! QuestionViewController
         let indexPath = self.tableView.indexPathForSelectedRow
+        
         gameState.subject = model[(indexPath?.row)!]
         gameState.questions = model[(indexPath?.row)!].questions
         gameState.currentQuestion = model[(indexPath?.row)!].questions[0]
