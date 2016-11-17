@@ -55,6 +55,8 @@ class TableViewController: UITableViewController {
         let session = URLSession(configuration: config) // Load configuration into Session
         let url = URL(string: "https://tednewardsandbox.site44.com/questions.json")!
         
+        defaults.set(url, forKey: "QuizURL")
+        
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
             
@@ -142,6 +144,7 @@ class TableViewController: UITableViewController {
 //        
 //        model = [mathematics, sciences, marvel]
         
+        defaults.set(model, forKey: "Model")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -199,6 +202,8 @@ class TableViewController: UITableViewController {
         print(model[(indexPath?.row)!].questions.count)
         gameState.questionsLeft = model[(indexPath?.row)!].questions.count
         gameState.score = 0
+        
+        defaults.set(gameState, forKey: "GameState")
         
         questionVC.desc = model[(indexPath?.row)!].desc
         questionVC.subject = model[(indexPath?.row)!].subject
