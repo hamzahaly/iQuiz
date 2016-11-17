@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class Question {
+open class Question : NSDictionary {
     var text: String = ""
     var answer: String = ""
     var answers: [String] = []

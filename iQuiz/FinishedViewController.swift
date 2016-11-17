@@ -23,7 +23,8 @@ class FinishedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(gameState.numberOfQuestions)
         scoreLabel.text = "\(gameState.score) / \(gameState.numberOfQuestions)"
         if Double(gameState.score) / Double(gameState.numberOfQuestions) == 1 {
             descLabel.text = "Perfect!"

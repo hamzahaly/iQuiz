@@ -24,9 +24,10 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var answers = [String]()
     var answerText = ""
     var answer = ""
+    var realAnswer = ""
     var subject = ""
-    var questions = [Question()]
-    var question = Question()
+    var questions : [[String:Any]] = [[:]]
+    var question : String = ""
     var desc = ""
     var model = [Subject]()
     var answerChosen : Int = 0
@@ -36,32 +37,32 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         
         gameState.questions = questions
-        //gameState.numberOfQuestions = questions.count
         gameState.questionsLeft = questions.count
-        //gameState.subject.title = subject
+        gameState.subject.title = gameState.subject.title
         
-        question = gameState.questions[0]
+        question = gameState.questions[0]["text"]! as! String
 
-//        answers = gameState.questions[0].answers
-//        answer = gameState.questions[0].answer
-//        
-//        let correctAnswer = question.answer
-//        if correctAnswer == "1" {
-//            answerText = question.answers[0]
-//        } else if correctAnswer == "2" {
-//            answerText = question.answers[1]
-//        } else if correctAnswer == "3" {
-//            answerText = question.answers[2]
-//        } else {
-//            answerText = question.answers[3]
-//        }
+        answers = gameState.questions[0]["answers"]! as! Array
+        realAnswer = gameState.questions[0]["answer"]! as! String
+        print("realAnswer: \(realAnswer)")
+        
+        let correctAnswer = realAnswer
+        if correctAnswer == "1" {
+            answerText = answers[0]
+        } else if correctAnswer == "2" {
+            answerText = answers[1]
+        } else if correctAnswer == "3" {
+            answerText = answers[2]
+        } else {
+            answerText = answers[3]
+        }
         answerChosen = questionPicker.selectedRow(inComponent: 0)
         
         questionPicker.dataSource = self
         questionPicker.delegate = self
         
         subjectLabel.text = gameState.subject.title
-        //questionLabel.text = question.text
+        questionLabel.text = question
         
         getAnswer()
         
@@ -111,7 +112,7 @@ class QuestionViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             answer = "4"
         }
         
-        if question.answer == answer {
+        if answer == realAnswer {
             rightOrWrong = "You got the right answer!"
         } else {
             rightOrWrong = "You got the wrong answer!"

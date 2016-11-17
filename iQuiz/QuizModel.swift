@@ -12,5 +12,5 @@ open class Subject {
     var subject: String = ""
     var desc: String = ""
     var title: String = ""
-    var questions: [Question] = []
+    var questions: [[String:Any]] = [[:]]
 }

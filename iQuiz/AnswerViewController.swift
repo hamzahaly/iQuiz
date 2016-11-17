@@ -28,8 +28,8 @@ class AnswerViewController: UIViewController {
     var answer = ""
     var answerText = ""
     var subject = ""
-    var questions = [Question()]
-    var question = Question()
+    var questions : [[String:Any]] = [[:]]
+    var question : String = ""
     var model = [Subject]()
     var gameState = GameState()
     var answerChosen : Int = 0
@@ -40,7 +40,7 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
 
         subjectLabel.text = gameState.subject.title
-        questionLabel.text = question.text
+        questionLabel.text = question
         correctAnswerLabel.text = answerText
         rightOrWrongLabel.text = rightOrWrong
         

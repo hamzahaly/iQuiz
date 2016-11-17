@@ -13,6 +13,6 @@ open class GameState {
     var numberOfQuestions : Int = 0
     var questionsLeft : Int = 0
     var subject = Subject()
-    var questions = [Question]()
-    var currentQuestion = Question()
+    var questions: [[String:Any]] = [[:]]
+    var currentQuestion : String = ""
 }

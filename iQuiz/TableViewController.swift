@@ -26,6 +26,7 @@ class TableViewController: UITableViewController {
 //    var marvelQuestions3 = Question()
     
     var gameState = GameState()
+    var questions : [[String: Any]] = []
     
     @IBAction func settings(_ sender: UIBarButtonItem) {
         
@@ -74,23 +75,17 @@ class TableViewController: UITableViewController {
                                 model.title = element["title"] as! String
                                 model.desc = element["desc"] as! String
                                 model.subject = element["title"] as! String
-                                print(element["questions"]!)
-                                model.questions = element["questions"]! as! [Question]
+                                self.questions = element["questions"] as! [[String: Any]]
+                                model.questions = self.questions
+                                //print("questions: \(model.questions)")
                             }
                         }
                         self.tableView.reloadData()
-                        //print(element)
-//                        print(element["questions"]!)
-//                        print(element["title"]!)
-//                        print(element["desc"]!)
-                        
                     }
                 } catch {
                     print("Serialization failed")
                 }
-
             }
-
         })
         task.resume()
         //Set the subjects
@@ -195,17 +190,23 @@ class TableViewController: UITableViewController {
         
         gameState.subject = model[(indexPath?.row)!]
         gameState.questions = model[(indexPath?.row)!].questions
-        gameState.currentQuestion = model[(indexPath?.row)!].questions[0]
+        gameState.currentQuestion = model[(indexPath?.row)!].questions[0]["text"]! as! String
+        //print("currentQuestion: \(model[(indexPath?.row)!].questions[0]["text"])")
+        
+        //gameState.questions = model[(indexPath?.row)!].questions
+        //gameState.currentQuestion = model[(indexPath?.row)!].questions[0]
         gameState.numberOfQuestions = model[(indexPath?.row)!].questions.count
+        print(model[(indexPath?.row)!].questions.count)
         gameState.questionsLeft = model[(indexPath?.row)!].questions.count
         gameState.score = 0
         
         questionVC.desc = model[(indexPath?.row)!].desc
         questionVC.subject = model[(indexPath?.row)!].subject
         questionVC.questions = model[(indexPath?.row)!].questions
-        questionVC.question = model[(indexPath?.row)!].questions[0]
-        questionVC.answers = model[(indexPath?.row)!].questions[0].answers
-        questionVC.answer = model[(indexPath?.row)!].questions[0].answer
+        questionVC.question = model[(indexPath?.row)!].questions[0]["text"]! as! String
+        questionVC.answers = model[(indexPath?.row)!].questions[0]["answers"]! as! Array
+        questionVC.answer = model[(indexPath?.row)!].questions[0]["answer"]! as! String
+    
         
         questionVC.gameState = gameState
     }
