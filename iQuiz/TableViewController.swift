@@ -62,6 +62,8 @@ class TableViewController: UITableViewController {
             
             if error != nil {
                 print(error)
+                self.gameState = self.defaults.object(forKey: "GameState") as! GameState
+                self.model = self.defaults.object(forKey: "Model") as! Array
             } else {
                 do {
                     let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [[String: Any]]
